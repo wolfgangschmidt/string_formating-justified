@@ -10,8 +10,8 @@
   formated strings. and receives from it also the limit size of the line breaks
   
   **Using the code**
-  
-    there is a `main()` which orchestrated the the hole process, 
+      
+  - there is a `main()` which orchestrated the the hole process, 
     it passes the the Raw string to the `line_formater()` declared on the top of the code file
     as parameters the functions, it then passes the return values to the second function `line_justified()`.
     

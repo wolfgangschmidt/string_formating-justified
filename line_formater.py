@@ -9,7 +9,7 @@ text_2 = 'And God said, "Let there be light," and there was light. God saw that 
 def line_formater(text, limit):
     formated_lines = []
     sentence = ''
-    words = text.split(' ')
+    words = text.split()
     
     for word in words:
         if len(sentence + word + ' ') <= limit:
@@ -30,21 +30,23 @@ def line_justified(formated_lines, limit):
     for line in formated_lines:
         space_counter = 0
         words = line.split(' ')
-        while len(line) < limit:    
-            words[space_counter] = words[space_counter] + ' '
-            line = ' '.join(words)
-
-            space_counter += 1
-            
+        while len(line) < limit:
+            try: 
+                words[space_counter] = words[space_counter] + ' '
+                line = ' '.join(words)
+                space_counter += 1 
+            except:
+                line = ' '.join(words)
+                line = line.rstrip()
+                space_counter = 0
+                
         justified_sentence.append(line)   
-    justified_text_output = '\n'.join(justified_sentence)
-            
+    justified_text_output = '\n'.join(justified_sentence)      
     print('justified', limit,'char lines:\n\n', justified_text_output)
 
 
 def main():
-    lines, limit = line_formater(text_2, 80)
+    lines, limit = line_formater(text_2, 20)
     line_justified(lines, limit)
 
-    
-main()
+#main()
